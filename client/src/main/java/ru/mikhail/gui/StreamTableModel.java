@@ -108,7 +108,7 @@ public class StreamTableModel extends AbstractTableModel {
         try {
             return this.filteredData.get(row);
         } catch (IndexOutOfBoundsException e) {
-            return this.filteredData.get(0);
+            return this.filteredData.getFirst();
         }
     }
 

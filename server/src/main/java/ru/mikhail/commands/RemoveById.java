@@ -36,6 +36,7 @@ public class RemoveById extends Command implements CollectionEditor {
             if (!collectionManager.checkExist((long) id)) throw new NoSuchId();
             if (DatabaseHandler.getDatabaseManager().deleteObject(id, request.getUser())) {
                 collectionManager.removeElement(collectionManager.getById((long) id));
+
             }
             return new Response(ResponseStatus.OK, "Объект удален успешно");
         } catch (NoSuchId err) {

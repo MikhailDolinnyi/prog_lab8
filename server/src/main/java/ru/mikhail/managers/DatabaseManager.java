@@ -30,8 +30,8 @@ public class DatabaseManager {
     private static final Logger databaseLogger = (Logger) LogManager.getLogger(DatabaseManager.class);
 
     public static final String HASHING_ALGORITHM = "SHA-512";
-    public static final String DATABASE_URL = "jdbc:postgresql://localhost:5432/studs";
-    public static final String DATABASE_URL_HELIOS = "jdbc:postgresql://pg:5432/studs";
+    public static final String DATABASE_URL = "jdbc:postgresql://localhost:5433/studs";
+    public static final String DATABASE_URL_HELIOS = "jdbc:postgresql://pg:5433/studs";
     public static final String DATABASE_CONFIG_PATH = Objects.requireNonNull(App.class.getClassLoader().getResource("config_to_server.cfg")).getPath();
 
     public DatabaseManager() {

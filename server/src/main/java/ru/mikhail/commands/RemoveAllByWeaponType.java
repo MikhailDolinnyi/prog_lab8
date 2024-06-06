@@ -41,6 +41,7 @@ public class RemoveAllByWeaponType extends Command implements CollectionEditor {
             Collection<SpaceMarine> toRemove = collectionManager.getCollection().stream()
                     .filter(Objects::nonNull)
                     .filter(spaceMarine -> spaceMarine.getWeaponType() == weaponType)
+                    .filter(spaceMarine -> Objects.equals(spaceMarine.getUserLogin(), request.getUser().name()))
                     .toList();
 
             if (DatabaseHandler.getDatabaseManager().deleteByWeaponType(request.getUser(),weaponType)) {

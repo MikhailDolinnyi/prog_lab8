@@ -60,6 +60,7 @@ public class DatabaseCommands {
             DELETE FROM spacemarine WHERE weapon_type=?::weapon_type AND owner_login = ?;
             """;
 
+
     public static final String deleteUserObject = """
             DELETE FROM spacemarine WHERE (owner_login = ?) AND (id = ?);
             """;

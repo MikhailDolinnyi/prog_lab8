@@ -44,10 +44,16 @@ public class UpdateAction extends Action {
         layout.addLayoutComponent(idLabel, BorderLayout.WEST);
         layout.addLayoutComponent(idField, BorderLayout.EAST);
 
-        JOptionPane.showMessageDialog(null,
-                idField,
-                resourceBundle.getString("Update"),
-                JOptionPane.PLAIN_MESSAGE);
+
+        int result = JOptionPane.showOptionDialog(null, idField, resourceBundle.getString("Update"), JOptionPane.YES_OPTION,
+                QUESTION_MESSAGE, null, new String[]{resourceBundle.getString("Update")}, resourceBundle.getString("Update"));
+        if (result != OK_OPTION) {
+            return null;
+        }
+//        JOptionPane.showMessageDialog(null,
+//                idField,
+//                resourceBundle.getString("Update"),
+//                JOptionPane.PLAIN_MESSAGE);
         return (Long) idField.getSelectedItem();
     }
 
@@ -60,7 +66,8 @@ public class UpdateAction extends Action {
     @Override
     public void actionPerformed(ActionEvent e) {
         Long id = this.getSelectedId();
-        updateJOptionWorker(id);
+        if (id != null) {
+        updateJOptionWorker(id);}
     }
 
     public void updateJOptionWorker(Long id) {
